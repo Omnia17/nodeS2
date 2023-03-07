@@ -21,5 +21,6 @@ app.use((req, res, next)=>{
 })
 
 mongoose.connect(dbConfig.mongo.uri);
+app.set('view engine', 'twig');
 
 module.exports =app;

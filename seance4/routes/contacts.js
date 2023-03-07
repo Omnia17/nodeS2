@@ -4,8 +4,19 @@ var Contact = require('../models/contact.js')
 
 
 
-router.get('/',(req, res, next)=>{
-res.json({message:'hello you'});
+router.get('/',function(req, res, next) {
+//res.json({message:'hello you'});
+Contact.find(
+    (err, contacts) => {
+    res.render(
+    "form.twig",
+    { title :
+    "Contact list "  , cont :
+    contacts
+    }
+    );
+}
+);
 });
 
 router.post('/',(req, res, next)=>{
